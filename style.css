@@ -1,0 +1,50 @@
+/* Universal selector */
+* {
+    font-family: Cursive;
+}
+
+/* Element selector */
+body {
+    background-color: lightblue;  /* Doraemon sky blue */
+}
+
+/* ID selector */
+#title {
+    color: black;                  /* Doraemon blue */
+    text-align: center;
+}
+
+/* Class selector */
+.intro {
+    color: blue;                 /* White for contrast like Doraemon's face */
+}
+/* Element selector */
+h2 {
+    color: blue;  /* Doraemon blue */
+}
+
+/* Class selector */
+.characters {
+    background-color: lightblue; /* Doraemon soft blue */
+    padding: 10px;
+}
+
+/* Descendant selector */
+.characters li {
+    color: navy;  /* Dark blue for text */
+}
+
+/* Group selector */
+h1, h2, p {
+    margin: 10px;
+}
+img {
+    width: 200px;
+    display: block;
+    margin: auto;
+    border-radius: 15px;
+    border: 3px solid blue;
+    padding: 5px;
+    background-color: white;
+}
+
