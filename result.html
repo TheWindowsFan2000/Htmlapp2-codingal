@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Doraemon Friendship Results</title>
+                <header>
+            <h1 id="title"> doreamonfacts </h1>
+            <nav>
+                <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="doreamonregister.html">Register</a></li>
+                  <li><a href="doreamonmedia.html">Doreamon Media</a></li>
+                  <li><a href="doreamonmarking.html">Doreamon Form</a></li>
+                  <li><a href="gadgets.html">Doreamon Gadget</a></li>
+                 </ul>
+
+            </nav>
+        </header>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { text-align: center; padding: 20px; font-family: "Comic Sans MS", cursive; }
+        h1 { color: lightblue; text-shadow: 2px 2px skyblue; }
+        .result { background: white; border: 5px solid lightblue; border-radius: 15px; padding: 20px; display: inline-block; box-shadow: 0 0 15px skyblue; margin-top: 20px; }
+        .result p { font-size: 1.2em; margin: 10px 0; }
+        .score { font-size: 1.5em; color: darkblue; font-weight: bold; }
+        label { display: block; margin: 5px 0; }
+        button { margin: 5px; padding: 8px 15px; border-radius: 8px; border: none; cursor: pointer; font-weight: bold; background: lightblue; color: white; }
+        button:hover { background: skyblue; }
+    </style>
+</head>
+<body>
+
+<h1>🎉 Doraemon Friendship Form 🎉</h1>
+
+<div class="result">
+    <label>Name: <input type="text" id="name"></label>
+
+    <label>Favourite Doraemon Character:
+        <select id="character">
+            <option value="Doraemon">Doraemon</option>
+            <option value="Nobita">Nobita</option>
+            <option value="Shizuka">Shizuka</option>
+            <option value="Gian">Gian</option>
+            <option value="Suneo">Suneo</option>
+        </select>
+    </label>
+
+    <label>Favourite Gadget:
+        <select id="gadget">
+            <option value="Anywhere Door">Anywhere Door</option>
+            <option value="Time Machine">Time Machine</option>
+            <option value="Take-Copter">Take-Copter</option>
+            <option value="Small Light">Small Light</option>
+        </select>
+    </label>
+
+    <label>Do you like Doraemon?</label>
+    <label><input type="radio" name="like" value="Yes"> Yes</label>
+    <label><input type="radio" name="like" value="Very Much"> Very Much</label>
+
+    <label>Favourite Episode Type:</label>
+    <label><input type="checkbox" class="episode" value="Funny"> Funny</label>
+    <label><input type="checkbox" class="episode" value="Adventure"> Adventure</label>
+    <label><input type="checkbox" class="episode" value="Emotional"> Emotional</label>
+
+    <br><br>
+    <button onclick="calculateScore()">Submit</button>
+    <button onclick="setWorst()">Worst Result</button>
+    <button onclick="setBest()">Best Result</button>
+    <button onclick="goBack()">Back</button>
+</div>
+
+<div class="result" id="output" style="display:none;">
+    <p><strong>Doraemon Friend Score:</strong> <span id="friendScore" class="score"></span>/100</p>
+    <p><strong>How much Shizuka likes you:</strong> <span id="shizukaScore" class="score"></span>%</p>
+</div>
+
+<script>
+function calculateScore() {
+    let name = document.getElementById('name').value || "Unknown";
+    let character = document.getElementById('character').value;
+    let gadget = document.getElementById('gadget').value;
+    let like = document.querySelector('input[name="like"]:checked')?.value || "No";
+
+    let episodes = Array.from(document.querySelectorAll('.episode:checked')).map(e => e.value);
+
+    // Calculate score
+    let score = 0;
+    if(like === "Yes") score += 20;
+    if(like === "Very Much") score += 40;
+    if(character === "Doraemon") score += 20;
+    if(character === "Shizuka") score += 10;
+    score += Math.min(episodes.length * 10, 30);
+    score = Math.min(score, 100);
+
+    let shizukaLike = Math.min(Math.round(score * 0.7 + Math.random() * 30), 100);
+
+    // Display results
+    document.getElementById('friendScore').textContent = score;
+    document.getElementById('shizukaScore').textContent = shizukaLike;
+    document.getElementById('output').style.display = "block";
+}
+
+// Set form to worst possible result
+function setWorst() {
+    document.getElementById('name').value = "";
+    document.getElementById('character').value = "Nobita";
+    document.getElementById('gadget').value = "Anywhere Door";
+    document.querySelectorAll('input[name="like"]').forEach(r => r.checked = false);
+    document.querySelectorAll('.episode').forEach(c => c.checked = false);
+    calculateScore();
+}
+
+// Set form to best possible result
+function setBest() {
+    document.getElementById('name').value = "Best Friend";
+    document.getElementById('character').value = "Doraemon";
+    document.getElementById('gadget').value = "Anywhere Door";
+    document.querySelector('input[name="like"][value="Very Much"]').checked = true;
+    document.querySelectorAll('.episode').forEach(c => c.checked = true);
+    calculateScore();
+}
+
+// Go back to index.html
+function goBack() {
+    window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>
