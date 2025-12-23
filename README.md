@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-personal website
-=======
-zs
+DOREAMON WEBSITE - ALL FACTS ABOUT DOREAMON=======
+bY 2027, THIS WILL BE A FULL DOREAMON WEBSITE.
 >>>>>>> 866ee3f27c37dc1c65cb9d5e207e4db8f5f1e177
+
