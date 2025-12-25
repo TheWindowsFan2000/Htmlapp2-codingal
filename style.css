@@ -1,6 +1,6 @@
 /* Universal selector */
 * {
-    font-family: Cursive;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Element selector */
@@ -128,3 +128,125 @@ nav ul li a:hover {
   color: lightblue;
 }
 
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #d0e8ff;
+  padding: 30px;
+}
+
+/* Main Heading */
+h1 {
+  text-align: center;
+  color: #0052a3;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 5px gray;
+}
+
+/* Character Heading */
+.character-box h2 {
+  color: #ff3b3b;
+  text-decoration: underline;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px lightgray;
+}
+
+/* Character Paragraph */
+.character-box p {
+  font-size: 18px;
+  text-indent: 50px;
+  line-height: 1.6;
+  color: #333;
+} 
+/* Image Styling */
+.character-box img{
+    width:200px;
+    height:200px;
+    object-fit: cover;
+    border-radius:10px;
+    display:block;
+    margin:10px auto;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+}body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #fff;
+
+    /* Background image + properties */
+    background-image: url("images/imli.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* HEADER WITH GRADIENT */
+header {
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    animation: slideDown 2s ease;
+}
+@keyframes slideDown {
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* MAIN CONTAINER */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 40px;
+}
+
+/* GADGET CARD */
+.card {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  /* Background gradient inside card */
+background-image: linear-gradient(135deg, #1e3c72, #2a5298);
+/* Animation */
+animation: fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.card img {
+  width: 150px;
+  height: 150px;
+}
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+/* Gradient Subtitle */
+.subtitle{
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    background: linear-gradient(to right, #ff0080, #ff6600);
+    -webkit-background-clip: text;
+    color: transparent;
+    word-spacing: 5px;
+    text-transform: capitalize;
+}
